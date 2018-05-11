@@ -7,7 +7,7 @@
 char A[8][8];
 bool flag=1;
 
-int main() {
+int main() {  
  
     int i1, j1, i2, j2;
     int i,j;

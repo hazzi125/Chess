@@ -4,7 +4,7 @@
 #include "func.h"
 
 char A[8][8];
-bool flag;
+bool flag; 
 
 void hack(int i1, int j1, int i2, int j2) {
     if(A[i2][j2] != ' ') {

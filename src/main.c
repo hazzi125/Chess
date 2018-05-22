@@ -57,21 +57,32 @@ int main() {
     scanf("%d", &i2);
     
     i1--; j1--; i2--; j2--;
-    if(A[i1][j1] != ' ') {
-        check_pawn(i1, j1, i2, j2);
-	if(flag == 1)
-	    hack(i1, j1, i2, j2);
-        if(flag == 1) {
-
-            if((A[i2][j2] == 'k') || (A[i2][j2]) == 'K')
-            win = true;
-
-            A[i2][j2] = A[i1][j1];
-            A[i1][j1] = ' ';
-        }
-    }
-    system("clear");
-    } while(win!=true);
+    if((A[i1][j1] == 'p') || (A[i1][j1] == 'P')) 
+	        check_pawn(i1, j1, i2, j2);
+	    if((A[i1][j1] == 'r') || (A[i1][j1] == 'R')) 
+	        check_rook(i1, j1, i2, j2);  
+		if((A[i1][j1] == 'n') || (A[i1][j1] == 'N')) 
+	        check_knight(i1, j1, i2, j2);  
+	    if((A[i1][j1] == 'b') || (A[i1][j1] == 'B')) 
+	        check_bishop(i1, j1, i2, j2);    
+		if((A[i1][j1] == 'q') || (A[i1][j1] == 'Q')) 
+	        check_queen(i1, j1, i2, j2); 
+		if((A[i1][j1] == 'k') || (A[i1][j1] == 'K')) 
+	        check_king(i1, j1, i2, j2);    
+	    
+		if(flag == 1)
+		    if(A[i2][j2] != ' ')
+		    	hack(i1, j1, i2, j2);
+		    	
+	    if(flag == 1) {
+	        if((A[i2][j2] == 'k') || (A[i2][j2]) == 'K')
+	            win = true;
+	
+	        A[i2][j2] = A[i1][j1];
+	        A[i1][j1] = ' ';
+	    }
+	    system("clear");
+    } while(win != true);
     system("clear");
 
     printf("\n");

@@ -5,7 +5,7 @@
 
 //const int n=8;
 char A[8][8];
-bool flag=1;
+bool flag;
 
 int main() {  
  
@@ -59,14 +59,19 @@ int main() {
     i1--; j1--; i2--; j2--;
     if((A[i1][j1] == 'p') || (A[i1][j1] == 'P')) 
 	        check_pawn(i1, j1, i2, j2);
+
 	    if((A[i1][j1] == 'r') || (A[i1][j1] == 'R')) 
 	        check_rook(i1, j1, i2, j2);  
+
 		if((A[i1][j1] == 'n') || (A[i1][j1] == 'N')) 
-	        check_knight(i1, j1, i2, j2);  
+	        check_knight(i1, j1, i2, j2); 
+ 
 	    if((A[i1][j1] == 'b') || (A[i1][j1] == 'B')) 
-	        check_bishop(i1, j1, i2, j2);    
+	        check_bishop(i1, j1, i2, j2);
+    
 		if((A[i1][j1] == 'q') || (A[i1][j1] == 'Q')) 
 	        check_queen(i1, j1, i2, j2); 
+
 		if((A[i1][j1] == 'k') || (A[i1][j1] == 'K')) 
 	        check_king(i1, j1, i2, j2);    
 	    

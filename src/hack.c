@@ -3,10 +3,10 @@
 #include<stdbool.h>
 #include "func.h"
 
-extern char A[8][8];
-extern bool flag; 
+char A[8][8];
+bool flag; 
 
-void hack(int i1, int j1, int i2, int j2) {
+int hack(int i1, int j1, int i2, int j2) {
     if(A[i2][j2] != ' ') {
         if((A[i1][j1] == 'p') || (A[i1][j1] == 'r') || (A[i1][j1] == 'n') || (A[i1][j1] == 'b') || (A[i1][j1] == 'k') || (A[i1][j1] == 'q')) {
             if((A[i2][j2] == 'P') || (A[i2][j2] == 'R') || (A[i2][j2] == 'N') || (A[i2][j2] == 'B') || (A[i2][j2] == 'K') || (A[i2][j2] == 'Q')) 
@@ -21,4 +21,5 @@ void hack(int i1, int j1, int i2, int j2) {
 		flag = 0;
         }
     }
+if (flag == 1) return 1; else return 0;
 }

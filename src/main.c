@@ -1,6 +1,6 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 #include "func.h"
 
 //const int n=8;
@@ -56,8 +56,13 @@ int main() {
     scanf("%d", &i2);    
 
     i1--; j1--; i2--; j2--;
-    if((A[i1][j1] == 'p') || (A[i1][j1] == 'P')) 
-	        flag = check_pawn(i1, j1, i2, j2, A);
+ /*   if((A[i1][j1] == 'p') || (A[i1][j1] == 'P')) 
+	        flag = check_pawn(i1, j1, i2, j2, A);*/
+		if(A[i1][j1] == 'P')
+		    flag = check_pawn(i1, j1, i2, j2);
+
+		if(A[i1][j1] == 'p')
+		    flag = check_pawn2(i1, j1, i2, j2);
 
 	    if((A[i1][j1] == 'r') || (A[i1][j1] == 'R')) 
 	        flag = check_rook(i1, j1, i2, j2);  

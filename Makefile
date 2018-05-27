@@ -5,17 +5,17 @@ OBJECTS = build/main.o build/check_bishop.o build/check_king.o build/check_knigh
 
 OB = build/main_test.o build/check_bishop.o build/check_king.o build/check_knight.o build/check_pawn.o build/check_pawn2.o build/check_queen.o build/check_rook.o build/hack.o 
 
-.PHONY: clean all bin build default test
+.PHONY: clean all bin build bin/chess bin/chess_test default test
 
-all: bin build default test
+all: bin build bin/chess bin/chess_test default test
 
-default: bin/prog
+default: bin/chess/prog
 
-test: bin/prog_test
-	bin/prog_test
+test: bin/chess_test/prog_test
+	bin/chess_test/prog_test
 
-bin/prog: $(OBJECTS) 
-	$(CXX) $(FLAGS) $(OBJECTS) -o bin/prog
+bin/chess/prog: $(OBJECTS) 
+	$(CXX) $(FLAGS) $(OBJECTS) -o bin/chess/prog
 
 build/main.o: src/main.c src/func.h 
 	$(CXX) $(CFLAGS) src/main.c  -o build/main.o
@@ -46,8 +46,8 @@ build/hack.o: src/hack.c src/func.h
 
 
 
-bin/prog_test: $(OB) 
-	$(CXX) $(FLAGS) $(OB) -o bin/prog_test
+bin/chess_test/prog_test: $(OB) 
+	$(CXX) $(FLAGS) $(OB) -o bin/chess_test/prog_test
 
 build/main_test.o: Test/main_test.c thirdparty/ctest.h src/func.h 
 	$(CXX) $(CFLAGS) -I thirdparty -I src -c Test/main_test.c -o build/main_test.o
@@ -56,5 +56,9 @@ build:
 	mkdir build
 bin:
 	mkdir bin 
+bin/chess:
+	mkdir bin/chess
+bin/chess_test:
+	mkdir bin/chess_test
 clean:
 	-rm -rf build bin

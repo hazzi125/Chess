@@ -4,14 +4,13 @@
 #include "func.h"
 
 //const int n=8;
-char A[8][8];
-bool flag;
 
 int main() {  
  
     int i1, j1, i2, j2;
     int i,j;
-
+    char A[8][8];
+    bool flag;
     for(i=0; i<8; i++) { //n=8
         A[1][i] = 'P';
         A[8-2][i] = 'p'; //n=8
@@ -54,30 +53,30 @@ int main() {
     scanf("%d", &j1);
     scanf("%d", &i1);
     scanf("%d", &j2);
-    scanf("%d", &i2);
-    
+    scanf("%d", &i2);    
+
     i1--; j1--; i2--; j2--;
     if((A[i1][j1] == 'p') || (A[i1][j1] == 'P')) 
-	        check_pawn(i1, j1, i2, j2);
+	        flag = check_pawn(i1, j1, i2, j2, A);
 
 	    if((A[i1][j1] == 'r') || (A[i1][j1] == 'R')) 
-	        check_rook(i1, j1, i2, j2);  
+	        flag = check_rook(i1, j1, i2, j2);  
 
 		if((A[i1][j1] == 'n') || (A[i1][j1] == 'N')) 
-	        check_knight(i1, j1, i2, j2); 
+	        flag = check_knight(i1, j1, i2, j2); 
  
 	    if((A[i1][j1] == 'b') || (A[i1][j1] == 'B')) 
-	        check_bishop(i1, j1, i2, j2);
+	        flag = check_bishop(i1, j1, i2, j2);
     
 		if((A[i1][j1] == 'q') || (A[i1][j1] == 'Q')) 
-	        check_queen(i1, j1, i2, j2); 
+	        flag = check_queen(i1, j1, i2, j2); 
 
 		if((A[i1][j1] == 'k') || (A[i1][j1] == 'K')) 
-	        check_king(i1, j1, i2, j2);    
+	        flag = check_king(i1, j1, i2, j2);    
 	    
 		if(flag == 1)
 		    if(A[i2][j2] != ' ')
-		    	hack(i1, j1, i2, j2);
+		    	flag = hack(i1, j1, i2, j2, A);
 		    	
 	    if(flag == 1) {
 	        if((A[i2][j2] == 'k') || (A[i2][j2]) == 'K')

@@ -190,10 +190,10 @@ CTEST(hack, correct_hack) {
     A[8-1][7] = 'r';
 
 	int k[4];
-	k[0] = 1;
+	k[0] = 2;
 	k[1] = 1;
-	k[2] = 5;
-	k[3] = 5;
+	k[2] = 6;
+	k[3] = 6;
 	int result = hack(k[0], k[1], k[2], k[3], A);
 	int expect = 1;
 	ASSERT_EQUAL(expect, result);
